@@ -1,0 +1,38 @@
+.footer {
+    margin-top: 1.4em;
+    background-color: gray;
+    color: #FFF;
+    padding: 3em;
+    text-align: center;
+}
+
+.social_list {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    font-size: 1.7em;
+}
+
+.social_list li {
+    margin: 0 1em;
+}
+
+.icon {
+    color: #FFF;
+}
+
+.icon:hover{
+    color: rgb(7, 7, 7);
+    cursor: pointer;
+}
+
+.copy {
+    font-size: 1.45em;
+    text-align: center;
+    margin-left: 1em;
+}
+
+.copy span {
+    font-weight: 600;
+    color: #0a58ca;
+}
