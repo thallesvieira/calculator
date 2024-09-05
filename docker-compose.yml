@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  app:
+  backend:
     image: thallesjacobs/manager:latest
     ports:
       - "8080:8080"
@@ -10,6 +10,8 @@ services:
       DATABASE: postgres
       DATABASE_PASSWORD: 123
       RANDOM_STRING_URL: https://www.random.org
+    networks:
+      - app-network
     depends_on:
       - db
 
@@ -21,10 +23,26 @@ services:
       POSTGRES_PASSWORD: 123
     ports:
       - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - app-network
 
   frontend:
-    build: .
+    image: thallesjacobs/calculator-operation:latest
+    container_name: frontend
+    environment:
+      - NODE_ENV=production
     ports:
       - "3000:80"
+    networks:
+      - app-network
     depends_on:
-      - app
+      - backend
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:

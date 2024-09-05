@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: thallesjacobs/calculator-operation:latest
+    container_name: frontend
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "3000:80"
