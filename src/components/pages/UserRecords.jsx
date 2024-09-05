@@ -132,7 +132,7 @@ function UserRecords({ token, areDeletedRecords, text }) {
 
   return (
     <div className={`${styles.records_container} table table-striped`}>
-      <nav className="navbar-light">
+      <nav className={`${styles.records_nav} navbar-light`}>
       <h3 className="card-title">{text}</h3>
         <form className={styles.form_record} onSubmit={handleSearch}>
           <input className={`${styles.input_record}`} 

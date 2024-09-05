@@ -1,4 +1,5 @@
 import Button from '../form/Button'
+import styles from './Table.module.css'
 
 function Table({records, currentRecords, onSetRecords, onSetAction, btnClass, btnText}) {
 
@@ -13,7 +14,7 @@ function Table({records, currentRecords, onSetRecords, onSetAction, btnClass, bt
     var order = 0;
 
     return (
-        <table className="table table-striped">
+        <table className={`${styles.table_container} table table-striped`}>
             <thead>
             <tr>
             <th scope="col">#</th>

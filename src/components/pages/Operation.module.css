@@ -1,6 +1,19 @@
 .operation_container {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
   margin-top: 1.4em;
   margin-bottom: 1em;
+}
+
+.form_operation {
+  margin-top: 2em;
+}
+
+
+@media (max-width: 523px) {
+  .operation_container {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 60px;
+  }
 }

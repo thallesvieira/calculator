@@ -1,6 +1,6 @@
 .footer {
     margin-top: 1.4em;
-    background-color: gray;
+    background-color: rgb(27, 27, 27);
     color: #FFF;
     padding: 3em;
     text-align: center;
@@ -22,7 +22,7 @@
 }
 
 .icon:hover{
-    color: rgb(7, 7, 7);
+    color: #0a58ca;
     cursor: pointer;
 }
 
@@ -35,4 +35,41 @@
 .copy span {
     font-weight: 600;
     color: #0a58ca;
+}
+
+@media (max-width: 478px) {
+    .social_list {
+      font-size: 1.5em;
+      width: 80%;
+    }
+
+    .copy {
+        font-size: 1.4em;
+        text-align: center;
+        width: 80%;
+    }
+}
+
+@media (max-width: 330px) {
+    .footer {
+        padding: 0;
+        display: flex;
+        width: 100%;
+    }
+
+    .social_list {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0;
+      font-size: 1.3em;
+      width: 10%;
+    }
+
+    .copy {
+        font-size: 1.2em;
+        text-align: center;
+        margin-left: 30%;
+        margin-top: 2.5em;
+        width: 100px;
+    }
 }

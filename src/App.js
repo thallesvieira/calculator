@@ -83,7 +83,7 @@ function App() {
         <>
           <Router>
             <Navbar onLogout={handleLogout} balance={userBalance}/>
-            <Container customClass="min-height">
+            {/* <Container customClass="min-height"> */}
             <Routes>
               <Route exact path='/' element={<Home />}></Route>
               <Route path='/operation' element={<Operation token={token} onHandleCleanRecords={handleCleanStorageRecords} onHandleUserBalance={handleUserBalance}/>}></Route>
@@ -91,7 +91,7 @@ function App() {
               <Route path='/deleted-records' element={<UserRecords token={token} text={"Deleted Records"} areDeletedRecords={true}/>}></Route>
               <Route path='/sign-out' element={<SignOut onHandleLogout={handleLogout}/>}></Route>
             </Routes>
-            </Container>
+            {/* </Container> */}
             <Footer />  
           </Router>
         </>

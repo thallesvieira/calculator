@@ -1,0 +1,65 @@
+.table_container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.table_container th {
+    text-align: center;
+}
+
+.table_container tr td {
+    text-align: center;
+}
+
+@media (max-width: 660px) {
+    .table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+
+    .table th,
+    .table td {
+        white-space: nowrap;
+    }
+}
+@media (max-width: 630px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    thead tr {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    td {
+        display: block;
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+        white-space: normal;
+    }
+
+    td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #000;
+    }
+}

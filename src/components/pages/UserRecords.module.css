@@ -1,14 +1,21 @@
 
 .records_container{
   width: 100%;
+  margin: 0 auto;
+}
+
+.records_nav{
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 1em;
 }
 
 .form_record {
   margin-top: 1em;
-  width: 100%;
 }
 
 .button_record {
+  min-width: 70px;
   width: 15%;
   padding: 10px;
   margin-left: 5px;
@@ -68,3 +75,24 @@ table td {
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
+
+@media (max-width: 424px) {
+  .form_record {
+    width: 100%;
+  }
+
+  .button_record {
+    min-width: 70px;
+    padding: 15px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    
+  }
+
+  .input_record {
+    min-width: 200px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+} 

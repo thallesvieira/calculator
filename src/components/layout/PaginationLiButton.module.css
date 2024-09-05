@@ -1,0 +1,6 @@
+@media (max-width: 630px) {
+    .page_item a {
+        font-size: .9em;
+        padding: 0.4em 0.7em;
+    }
+}

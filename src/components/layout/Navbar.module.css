@@ -1,8 +1,10 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  background-color: gray;
+  background-color: rgb(27, 27, 27);
   padding: 1em;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .list {
@@ -21,16 +23,61 @@
 }
 
 .item a:hover {
-  color: rgb(7, 7, 7);
+  color: #0a58ca;
 }
 
 .balance {
   /* color: rgb(0, 61, 0); */
-  color: #0a58ca;
+  color: #2bfd2b;
   text-decoration: none;
   margin: 0;
   margin-left: 1em;
   margin-right: 1em;
   font-size: large;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  
+  .item a {
+    font-size: .9em;
+  }
+
+  .balance {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 590px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .list {
+    width: 100%;
+    padding-left: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .item a {
+    display: block;
+    padding: 0.5em 0;
+    align-self: flex-start;
+    font-size: .9em;
+  }
+
+  .balance {
+    align-self: flex-start;
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 0;
+    font-size: 1em;
+  }
 }

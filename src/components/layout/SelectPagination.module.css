@@ -1,0 +1,13 @@
+@media (max-width: 630px) {
+    .select_form  {
+        font-size: .9em;
+        padding: 0.4em 0.7em;
+    }
+}
+
+@media (max-width: 480px) {
+    .select_form  {
+        font-size: .9em;
+        padding: .4em .2em;
+    }
+}
