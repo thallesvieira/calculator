@@ -4,6 +4,7 @@ const apiUrl = process.env.REACT_APP_API_URL;
 
 //======================Authentication======================//
 export async function authenticate(username, password) {
+    console.log('back'+apiUrl);
     const response = await axios.post(`${apiUrl}/auth/login`, {
         username: username,
         password: password,
