@@ -5,14 +5,15 @@ import Error from '../layout/Error';
 import Button from '../form/Button';
 import FormGroup from '../form/FormGroup';
 
-function Login({ onLogin }) {
+function Login({ onLogin, onHandleLoading }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  onHandleLoading();
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     authenticate(username, password)
     .then((data)=> onLogin(data))
     .catch((err)=> (

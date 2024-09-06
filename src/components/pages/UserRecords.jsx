@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import Pagination from '../layout/Pagination'
 import { getUserRecords, inactivateUserRecord } from '../../services/APIManager';
-import styles from './UserRecords.module.css';
+
+import Pagination from '../layout/Pagination'
+import Loading from '../layout/Loading';
 import Error from '../layout/Error';
 import Table from '../layout/Table';
+
 import Button from '../form/Button';
+
+import styles from './UserRecords.module.css';
 
 function UserRecords({ token, areDeletedRecords, text }) {
   const [search, setSearch] = useState('');
@@ -14,9 +18,11 @@ function UserRecords({ token, areDeletedRecords, text }) {
   const [totalPages, setTotalPages] = useState(0);
   const [error, setError] = useState('');
   const [recharge, setRecharge] = useState(false);
+  const [removeLoading, setRemoveLoading] = useState(false);
 
   useEffect(() => {
     setError(null);
+    setRemoveLoading(false);
     //Check if exists records in localstorage
     const storageRecords = (areDeletedRecords 
       ? localStorage.getItem('storedRecordsInactives') 
@@ -33,11 +39,13 @@ function UserRecords({ token, areDeletedRecords, text }) {
         setError(err.response.data.message),
         setRecords([])
       ))
+      .finally(() => setRemoveLoading(true));
     } else {
       handleRechargeHooks();
       const parseRecords = JSON.parse(storageRecords);
       setRecords(parseRecords.content);
       setTotalPages(parseRecords.totalPages);
+      setRemoveLoading(true);
     }
   }, [currentPage, pageSize, areDeletedRecords, recharge]);
 
@@ -125,10 +133,7 @@ function UserRecords({ token, areDeletedRecords, text }) {
     }
   }; 
 
-  const currentRecords = 
-  (records.length > 0) ?
-    records.slice(0, pageSize)
-  : []
+  const currentRecords = (records.length > 0) ? records.slice(0, pageSize) : []
 
   return (
     <div className={`${styles.records_container} table table-striped`}>
@@ -144,19 +149,25 @@ function UserRecords({ token, areDeletedRecords, text }) {
           <Button type="submit" btnClass={`${styles.button_record} btn btn-outline-primary`} text="search" />
         </form>
       </nav>
-      <Table 
-        records={records} 
-        currentRecords={currentRecords} 
-        onSetRecords={setRecords}
-        onSetAction={handleAction}
-        btnClass={!areDeletedRecords ? "btn btn-danger" : "btn btn-primary"}
-        btnText={!areDeletedRecords ? "Delete": "Recover"}/>
-      <Pagination 
-        totalPages={totalPages} 
-        pageSize={pageSize} 
-        onHandlePageSize={handlePageSize} 
-        currentPage={currentPage} 
-        onHandleChangePage={handleCurrentPage}/>
+      {!removeLoading ? (
+        <Loading />
+      ) : (
+      <>
+        <Table 
+          records={records} 
+          currentRecords={currentRecords} 
+          onSetRecords={setRecords}
+          onSetAction={handleAction}
+          btnClass={!areDeletedRecords ? "btn btn-danger" : "btn btn-primary"}
+          btnText={!areDeletedRecords ? "Delete": "Recover"}/>
+        <Pagination 
+          totalPages={totalPages} 
+          pageSize={pageSize} 
+          onHandlePageSize={handlePageSize} 
+          currentPage={currentPage} 
+          onHandleChangePage={handleCurrentPage}/>
+      </>
+      )}
       {error && <Error message={error} />}
     </div>
   );
