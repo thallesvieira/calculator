@@ -25,15 +25,15 @@ To initialize directly you can run the docker compose in this project. This dock
 ## Each user has already been created with a specific value in their wallet:
 
 * 1 - 1000.0
-* 2 - 500.0
+* 2 - 0.0
 * 3 - 0.0
-* 4 - 10000.0
-* 5 - 2000.0
+* 4 - 2000.0
+* 5 - 5000.0
 * 6 - 5000.0
-* 7 - 8000.0
-* 8 - 15000.0
-* 9 - 3000.0
-* 10 - 2000.0
+* 7 - 10000.0
+* 8 - 50000.0
+* 9 - 100000.0
+* 10 - 1000000.0
 
 ## The project have 3 main pages:
 * Operations: you can execute a new operation, and each operation has a cost
